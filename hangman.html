@@ -1,0 +1,37 @@
+
+<html>
+<head></head>
+<body>
+    <H1>Hangman-game</H1>
+<script>
+var final = "extreme";
+var counter = 0;
+for(var i = 0; i< final.length;i++){
+  var input = prompt("Input your letter!!");
+  if(input.length > 1){
+    alert("Invalid input!!!");
+  }
+  
+ var found = checkIfValid(input);
+ if(found){
+   counter++;
+ }
+
+}
+ if(counter == final.length){
+   alert("Congratulations!!!!");
+ }else{
+    alert("failed!!!!");
+ }
+
+function checkIfValid(input){
+  for(var i = 0; i< final.length;i++){
+    if(final[i] == input){
+      return true;
+    }
+  }
+  return false;
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<html>
+    <head>
+    </head>
+    <body>
+        <script>
+            var message = "Hello World";
+            console.log(message);
+            var loopCondition = function(){
+var obj = {isToBeRepeated : true,name:"someName"};
+var obj2 = obj;
+var counter = 0;
+while(obj.isToBeRepeated){
+  counter++;
+  console.log("counted: " + counter +" "+obj["isToBeRepeated"]);
+  if(counter == 10){
+  obj2.isToBeRepeated = false;  
+    
+  }
+}
+};
+loopCondition();
+
+var stringRandomizer = function(sampleString, finalLength){
+  var finalString = "";
+  for(var i = 0; i<finalLength;i++){
+    finalString = finalString + sampleString[Math.floor(Math.random() * sampleString.length)];
+  }
+  console.log(finalString);
+}
+stringRandomizer("abcdefghijklmnopqrstuvwxyz", 6); 
+ 
+var numberLikeLetterReplacer = function(){
+  var input = "javascript is awesome"; 
+  var output = ""; 
+  for(var i = 0 ; i<input.length;i++){
+   var char =  input[i];
+   if(char === 'a'){
+     output = output+4;
+   }
+   else if(char === 'e'){
+     output = output+3;
+   }
+   else if(char === 'i'){
+     output = output+1;
+   }
+   else if(char === 'o'){
+     output = output+0;
+   }
+   else{
+     output = output  + char;
+   }
+  }
+    console.log(output);
+}
+numberLikeLetterReplacer();
+        </script>
+        <h1>
+            Sample
+        </h1>
+        <h1>First-level heading</h1> <h2>Second-level heading</h2> <h3>Third-level heading</h3> <h4>Fourth-level heading</h4> <h5>Fifth-level heading</h5> <h6>Sixth-level heading</h6> 
+        <p><em>Strong</em></p>
+        <a href="http://www.google.com">click me</a>
+    </body>
+</html>
