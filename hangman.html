@@ -4,17 +4,36 @@
 <body>
     <H1>Hangman-game</H1>
 <script>
-var final = "extreme";
+var final = "rrrap";
+var progress=[];
+for(var i = 0 ; i<final.length;i++){
+  progress[i] = "-";
+}
 var counter = 0;
+var secondaryIndex = 0;
 for(var i = 0; i< final.length;i++){
-  var input = prompt("Input your letter!!");
+  var input = prompt("Input your letter!!" + showProgress());
   if(input.length > 1){
     alert("Invalid input!!!");
   }
   
- var found = checkIfValid(input);
- if(found){
+ var found = -1;
+ 
+ for(var j = secondaryIndex;j<final.length;j++){
+    if(final[j] === input){
+      
+      found = j;
+      secondaryIndex = j + 1;
+      break;
+    }
+    else{
+      found = -1;
+    }
+ }
+ //Display progress bar
+ if(found != -1){
    counter++;
+   progress[found] = input;
  }
 
 }
@@ -24,13 +43,22 @@ for(var i = 0; i< final.length;i++){
     alert("failed!!!!");
  }
 
-function checkIfValid(input){
-  for(var i = 0; i< final.length;i++){
-    if(final[i] == input){
-      return true;
-    }
+// function checkIfValid(input){
+//   for(var i = 0; i< final.length;i++){
+//     if(final[i] === input){
+      
+//       return i;
+//     }
+//   }
+//   return -1;
+// }
+
+function showProgress(){
+  var output="";
+  for(var i = 0; i< progress.length;i++){
+     output=output+progress[i];
   }
-  return false;
+  return output;
 }
 </script>
 </body>
