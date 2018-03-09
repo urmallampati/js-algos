@@ -1,9 +1,4 @@
-
-<html>
-<head></head>
-<body>
-    <H1>Hangman-game</H1>
-<script>
+//Timecomplexity - O(n^2)
 var final = "rrrap";
 var progress=[];
 for(var i = 0 ; i<final.length;i++){
@@ -37,22 +32,15 @@ for(var i = 0; i< final.length;i++){
  }
 
 }
+//Display success or failure alert
  if(counter == final.length){
-   alert("Congratulations!!!!");
+   alert("Congratulations!!!! The word is " + showProgress());
  }else{
-    alert("failed!!!!");
+    alert("failed!!!! The word is " + rrrap);
  }
 
-// function checkIfValid(input){
-//   for(var i = 0; i< final.length;i++){
-//     if(final[i] === input){
-      
-//       return i;
-//     }
-//   }
-//   return -1;
-// }
 
+//Show the progress
 function showProgress(){
   var output="";
   for(var i = 0; i< progress.length;i++){
@@ -60,6 +48,3 @@ function showProgress(){
   }
   return output;
 }
-</script>
-</body>
-</html>
