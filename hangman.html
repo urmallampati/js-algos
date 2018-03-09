@@ -1,5 +1,9 @@
 //Timecomplexity - O(n^2)
-var final = "rrrap";
+var possible = 
+["monkey","donkey","cat","rat","parrot","elephant"];
+possible.length
+var final = possible[Math.floor(Math.random()*possible.length)]
+
 var progress=[];
 for(var i = 0 ; i<final.length;i++){
   progress[i] = "-";
@@ -36,7 +40,7 @@ for(var i = 0; i< final.length;i++){
  if(counter == final.length){
    alert("Congratulations!!!! The word is " + showProgress());
  }else{
-    alert("failed!!!! The word is " + rrrap);
+    alert("failed!!!! The word is " + final);
  }
 
 
