@@ -1,8 +1,7 @@
 //Timecomplexity - O(n^2)
-var possible = 
-["monkey","donkey","cat","rat","parrot","elephant"];
-possible.length
-var final = possible[Math.floor(Math.random()*possible.length)]
+var possible = ["monkey","donkey","cat","rat","parrot","elephant"];
+
+var hangman=function(final){
 
 var progress=[];
 for(var i = 0 ; i<final.length;i++){
@@ -11,7 +10,7 @@ for(var i = 0 ; i<final.length;i++){
 var counter = 0;
 var secondaryIndex = 0;
 for(var i = 0; i< final.length;i++){
-  var input = prompt("Input your letter!!" + showProgress());
+  var input = prompt("Input your letter!!" + progress.join(""));
   if(input.length > 1){
     alert("Invalid input!!!");
   }
@@ -38,7 +37,7 @@ for(var i = 0; i< final.length;i++){
 }
 //Display success or failure alert
  if(counter == final.length){
-   alert("Congratulations!!!! The word is " + showProgress());
+   alert("Congratulations!!!! The word is " + progress.join(""));
  }else{
     alert("failed!!!! The word is " + final);
  }
@@ -46,9 +45,12 @@ for(var i = 0; i< final.length;i++){
 
 //Show the progress
 function showProgress(){
-  var output="";
-  for(var i = 0; i< progress.length;i++){
-     output=output+progress[i];
-  }
-  return output;
+  // var output="";
+  // for(var i = 0; i< progress.length;i++){
+  //   output=output+progress[i];
+  // }
+  // return output;
 }
+}
+
+ hangman(possible[Math.floor(Math.random()*possible.length)]);
