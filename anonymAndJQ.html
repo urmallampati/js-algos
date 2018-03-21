@@ -1,0 +1,14 @@
+<html>
+<body>
+<button>Click me</button>
+<div style="width:100px;height:100px;background:green;"></div>
+<script src="http://code.jquery.com/jquery-1.8.3.js"></script>
+<script>
+$(document).ready(function(){
+    $("button").click(function(){
+        $("div").animate({height:"toggle"}).append("hi");
+    });
+});
+</script>
+</body>
+</html>

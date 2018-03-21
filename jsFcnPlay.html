@@ -1,0 +1,46 @@
+<html>
+<script src="https://code.jquery.com/jquery-2.1.0.js"></script>
+<script>
+var compliObj = {
+    "name":"JavaScript",
+    "Description":"I am excellent!",
+    "quality":"intuitive",
+    "learn-methodology":"Debug and practice"
+};
+    
+compliObj.mirror = function (){
+    console.log(this + " this of mirror");
+}
+
+//Displayed only after the document is fully loaded
+$(document).ready(compliObj.mirror);
+  
+    
+//Following expects a function as input;
+compliObj.displayMe = function(f){
+    console.log(this);
+    f();
+    
+}
+
+function fcnForInput(){
+   console.log(this);
+    
+}
+
+    
+// displayMe is taking fcnForInput as input to its function. 
+// fcnForInput is still under Window
+compliObj.displayMe(fcnForInput);
+
+$(document).ready(compliObj.displayMe(fcnForInput));
+
+// Now fcnForInput falls under compliObj scope.    
+compliObj.displayMe = fcnForInput;
+compliObj.displayMe(); 
+console.log(compliObj.displayMe);
+console.log(fcnForInput);
+console.log(compliObj.displayMe === fcnForInput);
+
+</script>
+</html>

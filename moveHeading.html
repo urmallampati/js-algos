@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Interactive programming</title> 
+    </head> <body>
+    <h1 id="heading">Hello world!</h1>
+    <script src="https://code.jquery.com/jquery-2.1.0.js"></script><script>
+    var leftOffset = 0; 
+    var rightOffset = 0; 
+    var flipleft = false;
+    var clickCount = 0;
+
+    var moveHeadingLeftRight = function () { 
+        $("#heading").offset({ left: leftOffset});
+        
+        if(!flipleft){
+             leftOffset = leftOffset+1  ;
+        }
+        else{
+           leftOffset = leftOffset - 1; 
+        }
+        if (leftOffset > 500)
+        {
+            flipleft = true;
+           
+        }
+        if(leftOffset<0){
+            flipleft = false;
+        }
+    }; 
+   
+    var topOffset = 0;
+    var flipTop = false;
+    function moveHeadingTopBottom(){
+        $("#heading").offset({top:topOffset});
+        if(!flipTop){
+            topOffset=topOffset+1;
+        }
+        else{
+           topOffset=topOffset-1; 
+        }
+        if(topOffset>500){
+            flipTop = true;
+        }
+        else if(topOffset <0){
+           flipTop = false;  
+        }
+       
+    }
+    
+   var leftInterval; 
+   var topInterval;
+    
+    var isMoving = false;
+    
+    $("html").click(function(){
+        if(isMoving){
+        clearInterval(leftInterval);
+        clearInterval(topInterval);
+            isMoving = false;
+        }
+        else{
+            leftInterval = setInterval(moveHeadingLeftRight, 30);
+            topInterval = setInterval(moveHeadingTopBottom, 30);
+            isMoving=true;
+        }
+    })
+    
+    $("#heading").click(function(event){
+         clickCount++;
+         console.log("Clicked Me! "+clickCount + " at " + event.pageX + " " + event.pageY);
+     });
+    </script> 
+    </body> 
+</html> 

@@ -1,0 +1,73 @@
+<html>
+    <head>
+    <title>Welcome to my blog</title>
+    </head>
+    <body>
+        <h1 id = "main">WELCOME!!!</h1>
+         <h2 id = "heading-2">H2!!!</h2>
+        <button id = "chain">click me for chained fade out and in</button>
+        <button id = "oneafterAnother">click me for one after another fade out and in</button>
+        <button id = "reverseEffect">click me for one after another fade in and out</button>
+    </body>
+    <script src="https://code.jquery.com/jquery-2.1.0.js"></script>
+    <script>
+        
+        //DOM way
+        var heading = document.getElementById("main");
+        heading.textContent="How are you?";
+        heading.innerHTML = "How do ou do?";
+        
+        // jQuery way
+        $("#main").text("Changed");
+        console.log( $("#main"));
+        
+        // Selecting body and adding some other text
+        $("body").append("<h1>Another heading from jquery</h1>");
+        
+        //Selecting all h1s...The below text is appended to each h1 //tag
+        $("h1").append(" appended text from jquery");
+        
+        //Changing all h1s text
+        $("h1").text ( "H1 CHANGED!!");
+        
+        //Clone and change the text
+        var anotherElem = $("h2").clone();
+
+        $("body").append(anotherElem);
+        
+        anotherElem.text ("Will not impact other H2");
+        
+//        //Keep appending hobbies using jQuery
+//        while(true){
+//            var hobby  = prompt("Enter your hobby!");
+//            $("body").append("<h2>" + hobby + "</h2>");
+//            var needToBeContinued = confirm("Do you have more?");
+//            if(!needToBeContinued){
+//                break;
+//            }
+//        }
+        
+        //Fading out all h1s using jQuery
+        var originalElem =  $("h1");
+        var interElem =  $("h1");
+        $("document").ready( $("#chain").click(function(){
+             $("h1").text("About to fade").fadeOut(3000).fadeIn(2000);
+        }));
+        
+         $("document").ready( $("#oneafterAnother").click(function(){
+             $("h1").fadeOut(3000);
+             $("h1").fadeIn(2000);
+             
+        }));
+        
+       $("document").ready( $("#reverseEffect").click(function(){
+             $("h1").fadeIn(3000);
+             $("h1").fadeOut(2000);
+             
+        
+        }));
+//        
+        
+    </script>
+</html>
+

@@ -1,0 +1,30 @@
+<html>
+<body>
+    <h1>Hello World</h1>
+    <h2>Heading - 2</h2>
+    <h3>Heading - 3</h3>
+<script src="https://code.jquery.com/jquery-2.1.0.js"></script>
+<script>
+//    #1: listing Your friends with jQuery (And Making Them Smell!) Create an array containing the names of a few friends. Using a for loop, create a p element for each of your friends and add it to the end of the body element using the jQuery append method. Use jQuery to change the h1 element so it says My friends instead of Hello world!. Use the hide method followed by the fadeIn method to fade in each name as it’s provided. Now, modify the p elements you created to add the text smells! after each friend. Hint: If you select the p elements using $("p"), the append method will apply to all the p elements. 
+//    
+        var myFriends = ["C++", "Java", "Spring", "Hibernate", "JavaScript"];
+    for(var i = 0; i<myFriends.length;i++){
+        $("body").append("<p>" + myFriends[i]+"</p>")
+    }
+    $("h1").text("My friends:");
+    $("p").hide().fadeIn(3000);
+    $("p").append("is awesome");
+//    #2: Making a Heading flash How could you use fadeOut and fadeIn to cause the heading to flash five times, once a second? How could you do this using a for loop? Try modifying your loop so it fades out and fades in over 1 second the first time, over 2 seconds the second time, over 3 seconds the third time, and so on. 
+     $("h1").fadeOut(500).fadeIn(500);
+    
+    for(var i = 1; i<=5;i++){
+          $("h1").fadeOut(500*i).fadeIn(500*i);
+    }
+//    #3: Delaying Animations The delay method can be used to delay animations. Using delay, fadeOut, and fadeIn, make an element on your page fade out and then fade back in again after 5 seconds. 
+    $("h2").fadeOut(500).delay(5000).fadeIn(500);
+//    
+//#4: using fadeTo Try using the fadeTo method. Its first argument is a number of milliseconds, as in all the other animation methods. Its second argument is a number between 0 and 1. What happens when you run the following code? $("h1").fadeTo(2000, 0.5); What do you think the second argument means? Try using different values between 0 and 1 to figure out what the second argument is used for.
+    $("h1").fadeTo(10000, 0.2); 
+    </script>
+    </body>
+</html>

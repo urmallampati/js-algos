@@ -1,0 +1,34 @@
+<html>
+<script>
+var jsObj =  {
+    "name":"JavaScript",
+    "Description":"I am excellent!",
+    "quality":"intuitive",
+    "learn-methodology":"Debug and practice"
+};
+    
+var jsCopyObj = jsObj;
+    
+console.log("Equality check just after assgignment" + jsObj === jsCopyObj); // False
+    
+jsCopyObj.Description  =  "I am Awesome!";
+
+//False
+console.log("Equality check after change" + jsObj === jsCopyObj);
+
+// You can observe that description of both is "I am Awesome!"    
+console.log(jsObj);
+console.log(jsCopyObj);   
+    
+jsNoDecObj =  jsObj;   
+console.log("Equality check just after assgignment" + jsNoDecObj === jsObj); //False
+
+jsNoDecObj.Description = "I puzzel ur brain";
+//All are same
+console.log(jsObj);
+console.log(jsNoDecObj);
+console.log(jsCopyObj);
+    
+
+</script>
+</html>

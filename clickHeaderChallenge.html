@@ -1,0 +1,50 @@
+<html>
+<head>
+</head>
+<body>
+    <h1 id="heading">click me for 10 times in 10 seconds to win</h1>
+    <script src="https://code.jquery.com/jquery-2.1.0.js"></script><script>
+    var numberOfTimesClicked = 0;
+    var topOffset = 0;
+    var leftOffset = 0;
+    var isFlipped = false;
+    function speedUp(){
+        $("#heading").offset({top:topOffset,
+                            left:leftOffset});
+        if(topOffset >= 500){
+            isFlipped = true;
+        }
+        if(topOffset <= 0){
+            isFlipped = false;
+        }
+        if(!isFlipped){
+           topOffset = topOffset+(numberOfTimesClicked+1)*0.8;
+           leftOffset=leftOffset+(numberOfTimesClicked+1)*0.8;
+        }
+        else{
+           topOffset = topOffset-(numberOfTimesClicked+1)*0.8;
+           leftOffset= leftOffset-(numberOfTimesClicked+1)*0.8;
+        }
+    }
+   var interval = setInterval(speedUp,30);
+    var isLost = false;
+  var timeout = setTimeout(function(){
+      alert("You Lost!!!!");
+      clearInterval(interval);
+      isLost = true;
+  },10000);
+
+    $("#heading").click(function(){
+        if(!isLost){
+        numberOfTimesClicked++;
+        console.log(numberOfTimesClicked);
+         if(numberOfTimesClicked==10){
+            alert("YOU WON!!!!")
+            clearInterval(interval);
+         }
+    }
+    })
+   
+    </script>
+</body>
+</html>
